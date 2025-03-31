@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Federated Open Key Service (FOKS)</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how">How</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#why">Why</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#download">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#roadmap">Roadmap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#source">Source</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <div class="container-fluid bg-primary text-white text-center py-4">
+        <div class="row align-items-center">
+         <div class="col-md-7"><h1 class="display-1">FOKS</h1>
+            <h2>the Federated Open Key Service</h2>
+        </div>
+         <div class="col-md-4">
+            <img src="/img/foks.png" style="height: 200px" />
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+
+    <!-- What Can It Do Section -->
+    <div id="what-can-it-do" class="container my-5">
+        <h2 class="text-center">What Can FOKS Do For Me?</h2>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-5 mb-3">
+                <div class="container">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <pre class="mb-0 text-start">
+$ <span class="text-info">foks</span> git create secrets
+Created: foks://acme.co/alice/secrets
+
+$ <span class="text-info">git</span> remote add origin foks://acme.co/alice/secrets
+
+$ <span class="text-info">git</span> push origin main
+⏻ Initializing FOKS ... ✅ done
+️☝ ️Indexing packfiles ... ✅ done
+️⬆️ Pushing objects to remote ... ✅ done
+To foks://acme.co/alice/secrets
+ * [new branch]      main -> main
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-7">
+                <h3 class="fs-4">End-to-End Post-Quantum Encrypted Git Hosting</h3>
+                <p class="text-start">
+                    FOKS provides a secure, end-to-end encrypted Git hosting service. 
+                    Your data is encrypted on your machine before it is sent to the server,
+                    and the server never sees data or filenames in unencrypted form.
+                    This means that even if the server is compromised, your data is safe.
+                    FOKS is federated, so the git server can be one that
+                    you host, or one that is hosted for you.
+                </p>
+                <p class="text-start">
+                    Additionally, FOKS uses modern PQ-secure public-key cryptography, so all end-to-end
+                    encrypted data is safe from quantum attacks.
+                </p>
+            </div>
+        </div>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-5 mb-3">
+                <div class="container">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <pre class="mb-0 text-start">
+$ <span class="text-info">foks</span> kv put /secrets/vitals/ssn 123-45-6789
+$ <span class="text-info">foks</span> kv get /secrets/vitals/ssn -
+123-45-6789
+
+$ <span class="text-info">foks</span> kv put -f /secrets/doc.pdf ~/doc.pdf
+$ <span class="text-info">foks</span> kv get /secrets/doc.pdf /tmp/doc.pdf
+$ <span class="text-info">diff</span> ~/doc.pdf /tmp/doc.pdf && echo "the same"
+the same
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h3 class="fs-4">End-to-End Post-Quantum Encrypted Key-Value Store</h3>
+                <p class="text-start">
+                    Internally, FOKS implements git atop an encrypted key-value store.
+                    Clients encrypt keys and values before sending them up to the server,
+                    and decrypts them upon retrieval. You can access
+                    this key-value store directly, which can store either 
+                    short strings, or large data files.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-4 mb-4">
+            <div class="col-md-5 mb-3">
+                <div class="container">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <pre class="mb-0 text-start">
+$ <span class="text-info">foks</span> team list-memberships
+owner    devops 
+member   marketing@widgets.org
+member   seo@gizmos.net  (via marketing@widgets.org)
+
+$ <span class="text-info">foks</span> team list devops
+owner    alice
+admin    bob
+member   charlie@widgets.org
+member   t:devops@gizmos.net
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h3 class="fs-4">Federated and Generalized Team Management</h3>
+                <p class="text-start">
+                    FOKS provides a federated and generalized team management system. 
+                    You can create teams, add members, and assign roles. 
+                    You can also delegate team management to other team members. 
+                    Teams can be members of other teams, allowing for complex
+                    team topologies that can mirror real-world organizations.
+                    Morever, teams can cross federated boundaries, allowing
+                    users on different FOKS servers to share data with end-to-end encryption.
+            </div>
+        </div>
+
+        <div class="row mt-4 mb-4">
+            <div class="col-md-5 mb-3">
+                <div class="container">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <pre class="mb-0 text-start">
+$ <span class="text-info">foks</span> device list
+* laptop 2024-05-04    computer      active
+  neither 3213         backup        active
+  YubiKey 5 NFC        yubikey       active
+  desktop 2023-04-01   computer      revoked
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h3 class="fs-4">Device Management with Full YubiKey Support</h3>
+                <p class="text-start">
+                    FOKS provides a device management system with full YubiKey support. 
+                    You can register your devices with FOKS and manage their access. 
+                    You can also revoke access to a device if it is lost or stolen. 
+                    Revoking triggers a cascading key-rotation across all teams you are members of,
+                    whether local or federated. This keeps data secure going forward.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- How Does It Work Section -->
+    <div id="how" class="container my-5">
+        <h2 class="text-center">How Does It Work?</h2>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-8">
+                <h3 class="fs-4">A Simple Key Hierarchy</h3>
+                <p class="text-start">
+                    To power applications like the Git and KV-Store shown above,
+                    FOKS needs a shared symmetric key for all readers and writers
+                    of the data, available only to the authorized devices, teams
+                    users and keys that the authors specify. FOKS achieves
+                    this natural application requirement with a simple key hierarchy.
+                </p>
+                <p class="text-start">
+                    Everything starts with base-level keys, like user device keys,
+                    backup keys, or YubiKeys. 
+                    Device keys are generated on user devices
+                    and never leave the machine they are generated on. They are protected
+                    locally with system-specific encrypted stores where possible,
+                    and passwords where not. Other base-level keys include backup keys
+                    (for which a human-readable code is the seed), or YubiKeys. 
+                </p>
+                <p class="text-start">
+                    Every user of the system has a sequence of per-user-keys (PUKs) 
+                    at the next level up the hierarchy. The secrets seeds for these keys are encrypted
+                    for all available base-level keys. A PUK rotates whenever
+                    a base-level key is removed.
+                </p>
+                <p class="text-start">
+                    At the next level up there are teams, which work much like users.
+                    All members of the teams share per-team-keys (PTKs), which 
+                    are encrypted for the team's members, be they users (via PUKs)
+                    or teams (via recursive PTKs).
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img src="/img/keys.webp" style="height: 300px;" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mt-4 mb-4">
+            <div class="col-md-8">
+                <h3 class="fs-4">Signature Chains</h3>
+                <p class="text-start">
+                In FOKS, there are two types of <i>parties</i>: users and teams.
+                In both cases, there is a rotating list of constituents (be they
+                devices or team members), and as these constituents change, so
+                to does the corresponding active PUK or PTK. As such users and teams
+                share much protocol design and implementation mechanism.
+                </p>
+                <p class="text-start">
+                    In both cases, the set of keys that can sign on behalf of
+                    the party changes over time, and it's crucial for security that
+                    there is a careful accounting of these keys that resists
+                    tampering by the FOKS server.
+                </p>
+                <p class="text-start">
+                    To prevent tampering, FOKS uses "signatures chains", a linear
+                    chain of signatures that can be played back to verify 
+                    the ordering of signatures, and that each signature was performed
+                    with a key that was valid at the time of signing.
+                </p>
+           </div>
+           <div class="col-md-4">
+               <div class="text-center">
+                   <img src="/img/chain.webp" style="height: 300px;" />
+               </div>
+            </div>
+        </div> 
+        <div class="row mt-4 mb-4">
+            <div class="col-md-8">
+                <h3 class="fs-4">Merkle Trees</h3>
+                <p class="text-start">
+                    When different parties or computers access keys for a party,
+                    they do so via signature chains; they grab these chains from
+                    the server and play them back to discover the current set of
+                    keys that represent a party.
+                </p>
+                <p class="text-start">
+                    A compromised server can still cheat here by forking chains,
+                    or by withholding updates. A <i>Merkle Tree</i> is deployed
+                    on each federated host to hold it accountable to one consistent
+                    view of the world. Each signature link is immutably stored
+                    in the tree, preventing various forms of "vacilation."
+                </p>
+                <p class="text-start">
+                    FOKS further introduces a novel technique to hide 
+                    updates from outside observers with only simple cryptography
+                    (and without VRFs).
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img src="/img/tree.png" style="height: 300px;" />
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-8">
+                <h3 class="fs-4">Boring Hardened PQ Crypto</h3>
+                <p class="text-start">
+                    FOKS makes an effort to use the simplest, most boring, most hardened
+                    possible crypto. It makes extensive use of Go's standard
+                    implementation of the NaCl library. Whenever
+                    Diffie-Helman over Curve25519 is used, it's combined
+                    with the NIST-standardized ML-KEM algorithm
+                    to give post-quantum security.
+                </p>
+                <p class="text-start">
+                    We've made an effort to avoid fancier crypto like VRFs,
+                    SNARKs, STARKs, etc., in favor of simple primitives
+                    wherever possible. For instance, it might seem Neanderthal to
+                    use simple hashes instead of VRFs to hide positions of items on 
+                    our Merkle Tree. But do you know of any good PQ-secure VRFs?
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img src="/img/salt.png" style="height: 300px;" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Principles section -->
+    <div id="why" class="container my-5">
+        <h2 class="text-center">Guiding Prinicples</h2>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-4 mt-2 mb-2">
+                <div class="text-center">
+                <img src="/img/vault.jpg" style="height: 200px;" />
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h3 class="fs-4">Security & Integrity</h3>
+                <p class="text-start">
+                    The world has become accustomed to strong end-to-end encryption
+                    and integrity for ephemeral messaging. Other applications have not enjoyed the same
+                    level of security. FOKS aims currently to provide the best possible
+                    security for long-lived data, like persistent file storage (Git) 
+                    and persistent key-value storage.
+                </p>
+                <p class="text-start">
+                    FOKS is designed from a security-first perspective, and not
+                    as a bolt-on to an inherently insecure product. The team
+                    has used decades of experience in similar products to 
+                    achieve a level of security that we are proud of.
+                </p>
+            </div>  
+        </div>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-4">
+                <div class="text-center">
+                <img src="/img/shh.png" style="width: 200px;" />
+                </div>  
+            </div>  
+            <div class="col-md-8">
+                <h3 class="fs-4">Privacy</h3>
+                <p class="text-start">
+                    Despite its ethos of forcing servers to immutably and
+                    publicly commit to cryptographic data, FOKS hides personal
+                    information behind one-way commitments as much as possible.
+                    Details like user names, team names,  device names, team
+                    memberships and leaf locations remain obscured unless users
+                    are granted explicit permission to access these data.
+                    Thus, users on the same server can feel
+                    confident that their personal metadata are safe, even as
+                    the server commits to the global state of all its data.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-4 mb-4">
+            <div class="col-md-4 mt-2 mb-2">
+                <div class="text-center">
+                <img src="/img/mit.webp" style="width: 200px;" />
+                </div>  
+            </div>  
+            <div class="col-md-8">
+                <h3 class="fs-4">Open Source</h3>
+                <p class="text-start">
+                    Claims of end-to-end encryption are dubious at best if the
+                    source code at the ends remains closed off from inspection,
+                    and if users cannot build the software themselves.  FOKS is
+                    fully open-source. All components, client and server, are
+                    available under an MIT license. You can run it, fork it, and
+                    modify it to suit your needs.  We accept contributions and
+                    feature requests, but we are a very small team, so please be
+                    patient.
+                 </p>
+            </div>
+        </div>
+
+        <div class="row mt-4 mb-4">
+            <div class="col-md-4 mt-2 mb-2">
+                <div class="text-center">
+                <img src="/img/bootstraps.webp" style="width: 200px;" />
+                </div>  
+            </div>  
+            <div class="col-md-8">
+                <h3 class="fs-4">Bootstrapped</h3>
+                <p class="text-start">
+                    We know that a lot of projects start as open-source,
+                    but later rug-pull their users due to the economics 
+                    of their funding models. The creators behind FOKS
+                    have not taken on any outside funding, and are pursuing
+                    its creation as a passion project. We think there might be a
+                    good business in being a default hosting provider for FOKS,
+                    which might provide the funding for the team to continue
+                    development of the project indefinitely.
+                 </p>
+            </div>
+        </div>
+
+
+        <div class="row mt-4 mb-4">
+            <div class="col-md-4">
+                <div class="text-center">
+                <img src="/img/federation.png" style="height: 200px;" />
+                </div>  
+            </div>  
+            <div class="col-md-8">
+                <h3 class="fs-4">Federation</h3>
+                <p class="text-start">
+                    Users are right to fear "vendor lock-in" if storing
+                    their important data in the cloud. FOKS is fundamentally
+                    designed to give users peace of mind here, as it is an
+                    inherently federated protocol. Like email or the web,
+                    anyone can permissionlessly run a FOKS server. There 
+                    are many reasons users might choose to do so, such
+                    as data-residency, avoiding production dependencies on
+                    thrid-party systems, added privacy, or better 
+                    control over data.
+                </p>
+                <p class="text-start">
+                    But also like email and the web, independent federated
+                    systems can still cleanly interact. In FOKS, teams 
+                    can span federated severs, so users can share data 
+                    as if they were on the same server. 
+                </p>
+           </div>
+        </div> 
+
+        <div class="row mt-4 mb-4">
+            <div class="col-md-4">
+                <div class="text-center">
+                <img src="/img/general.png" style="width: 200px;" />
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h3 class="fs-4">Generality</h3>
+                <p class="text-start">
+                    FOKS is a general protocol, like email or HTML/HTTP.
+                    We have built two "start" applications to show 
+                    the power of the basic primitive. But hope to build
+                    more applications soon, and we want others to build
+                    their end-to-end encrypted applications too. The basic
+                    building block is a set of shared symmetric keys that
+                    rotate when necessary. From here, the options are limitless.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Download and Install -->
+    <div id="download" class="container my-5">
+      <div class="row">
+        <div class="col-md-2"> </div>
+        <div class="col-md-8">
+        <div class="card-header">
+          <h3 class="text-center">Download And Install</h2>
+        </div>
+        <div class="card-body">
+            <!-- Tabs Navigation -->
+            <ul class="nav nav-tabs" id="installationTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="macos-tab" data-bs-toggle="tab" data-bs-target="#macos" type="button" role="tab" aria-controls="macos" aria-selected="false">macOS</button>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Linux</a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <button class="nav-link" id="linux-debian-tab" data-bs-toggle="tab" data-bs-target="#linux-debian" type="button" role="tab" aria-controls="linux-debian" aria-selected="false">Debian</button>
+                       </li>
+                      <li>
+                        <button class="nav-link" id="linux-ubuntu-tab" data-bs-toggle="tab" data-bs-target="#linux-ubuntu" type="button" role="tab" aria-controls="linux-ubuntu" aria-selected="false">Ubuntu</button>
+                      </li>
+                      <li>
+                        <button class="nav-link" id="linux-arch-tab" data-bs-toggle="tab" data-bs-target="#linux-arch" type="button" role="tab" aria-controls="linux-arch" aria-selected="false">Arch</button>
+                      </li>
+                    </ul>
+                  </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="source-tab" data-bs-toggle="tab" data-bs-target="#source" type="button" role="tab" aria-controls="linux" aria-selected="true">Source</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="windows-tab" data-bs-toggle="tab" data-bs-target="#windows" type="button" role="tab" aria-controls="windows" aria-selected="false">Windows</button>
+                </li>
+            </ul>
+
+            <!-- Tabs Content -->
+            <div class="tab-content" id="installationTabContent">
+                <!-- Windows Instructions -->
+                <div class="tab-pane fade" id="windows" role="tabpanel" aria-labelledby="windows-tab">
+                    <div class="p-3">
+                        <h5>Windows Installation</h5>
+                        <ol>
+                            <li>Download the installer from the official website.</li>
+                            <li>Double-click the downloaded file to start the installation.</li>
+                            <li>Follow the on-screen instructions to complete the setup.</li>
+                            <li>Launch the application from the Start Menu.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- macOS Instructions -->
+                <div class="tab-pane fade" id="macos" role="tabpanel" aria-labelledby="macos-tab">
+                    <div class="p-3">
+                        <h5>macOS Installation</h5>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start">
+$ brew install foks
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Linux Debian Instructions -->
+                <div class="tab-pane fade" id="linux-debian" role="tabpanel" aria-labelledby="linux-debian-tab">
+                    <div class="p-3">
+                        <h5>Debian Installation</h5>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start">
+$ apt install foks
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="linux-ubuntu" role="tabpanel" aria-labelledby="linux-ubuntu-tab">
+                    <div class="p-3">
+                        <h5>Ubuntu Installation</h5>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start">
+$ apt install foks
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="linux-arch" role="tabpanel" aria-labelledby="linux-arch-tab">
+                    <div class="p-3">
+                        <h5>Arch Linux Installation</h5>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start">
+$ pacman -S foks
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Source Instructions -->
+                <div class="tab-pane fade show active" id="source" role="tabpanel" aria-labelledby="source-tab">
+                    <div class="p-3">
+                        <h5>Build from Source</h5>
+                        <p class="text-start">
+                            To build FOKS from source, you will need a relatively-modern installation
+                            of <a href="https://go.dev">Go</a> on your system. And that's it.
+                        </p>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start">
+$ go install github.com/foks/go-foks/client/cmd/foks@latest
+$ (cd $(dirname $(which foks)) && ln -s foks git-remote-foks)
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        <div class="col-md-2"> </div>
+      </div>
+    </div>
+    <!-- Roadmap -->
+    <div id="roadmap" class="container my-5">
+        <div class="row">
+        <div class="col-md-2"> </div>
+        <div class="col-md-8">
+        <h2 class="text-center">Roadmap</h2>
+        <p class="text-start">
+            There are many ways we'd like to go in the future, depending on where
+            we get engagement and what features seem most useful for users.
+            Here are some directions we're considering:
+       </p>
+       <ul>
+        <li><b>Mobile phone apps</b></li>
+        <li><b>Localhost Web-based UI</b></li>
+        <li><b>Sync-based Filesystem</b></li>
+        <li><b>SSO integration</b></li>
+       </ul>
+       </div>
+       <div class="col-md-2"></div> 
+       </div>
+    </div>
+
+<!-- Source -->
+<div id="source" class="container my-5">
+    <div class="row">
+    <div class="col-md-2"> </div>
+    <div class="col-md-8">
+    <h2 class="text-center">Source Code</h2>
+    <p class="text-start">
+        The source code for FOKS is openly available on GitHub. You can clone the repository
+        and build the project yourself. We welcome contributions and pull requests.
+    </p>
+    </div>
+    <div class="col-md-2"></div> 
+    </div>
+</div>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4">
+        <p>&copy; Placeholder. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
