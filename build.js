@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const handlebars = require('handlebars');
+const { all } = require('express/lib/application');
 
 const viewsDir = path.join(__dirname, 'views');
 const partialsDir = path.join(viewsDir, 'partials');
@@ -10,11 +11,12 @@ const layoutsDir = path.join(viewsDir, 'layouts');
 const outputDir = path.join(__dirname, 'dist');
 const cssOutputDir = path.join(outputDir, 'css');
 const imgOutputDir = path.join(outputDir, 'img');
+const jsOutputDir = path.join(outputDir, 'js');
 
-
-if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
-if (!fs.existsSync(cssOutputDir)) fs.mkdirSync(cssOutputDir);
-if (!fs.existsSync(imgOutputDir)) fs.mkdirSync(imgOutputDir);
+const allOutputDirs = [outputDir, cssOutputDir, imgOutputDir, jsOutputDir];
+allOutputDirs.forEach(dir => {
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir);
+});
 
 // Register partials
 fs.readdirSync(partialsDir).forEach(file => {
@@ -48,6 +50,13 @@ fs.copyFileSync(
 );
 
 console.log('Bootstrap CSS copied to dist/css/bootstrap.min.css');
+
+// copy all files from node_modules/bootstrap/dist/js to dist/js
+fs.copyFileSync(
+  path.join(__dirname, 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'),
+  path.join(jsOutputDir, 'bootstrap.bundle.min.js')
+);
+console.log('Bootstrap JS copied to dist/js/bootstrap.bundle.min.js');
 
 // copy all images from public/img to dist/img by first listing all the images
 // and then copying each one
