@@ -1,0 +1,127 @@
+
+    <!-- How Does It Work Section -->
+    <div id="how" class="container my-5">
+        <h2 class="text-center">How Does It Work?</h2>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-8">
+                <h3 class="fs-4">A Simple Key Hierarchy</h3>
+                <p class="text-start">
+                    To power applications like the Git and KV-Store shown above,
+                    FOKS needs a shared symmetric key for all readers and writers
+                    of the data, available only to the authorized devices, teams
+                    users and keys that the authors specify. FOKS achieves
+                    this natural application requirement with a simple key hierarchy.
+                </p>
+                <p class="text-start">
+                    Everything starts with base-level keys, like user device keys,
+                    backup keys, or YubiKeys. 
+                    Device keys are generated on user devices
+                    and never leave the machine they are generated on. They are protected
+                    locally with system-specific encrypted stores where possible,
+                    and passwords where not. Other base-level keys include backup keys
+                    (for which a human-readable code is the seed), or YubiKeys. 
+                </p>
+                <p class="text-start">
+                    Every user of the system has a sequence of per-user-keys (PUKs) 
+                    at the next level up the hierarchy. The secrets seeds for these keys are encrypted
+                    for all available base-level keys. A PUK rotates whenever
+                    a base-level key is removed.
+                </p>
+                <p class="text-start">
+                    At the next level up there are teams, which work much like users.
+                    All members of the teams share per-team-keys (PTKs), which 
+                    are encrypted for the team's members, be they users (via PUKs)
+                    or teams (via recursive PTKs).
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img src="/img/keys.webp" style="height: 300px;" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mt-4 mb-4">
+            <div class="col-md-8">
+                <h3 class="fs-4">Signature Chains</h3>
+                <p class="text-start">
+                In FOKS, there are two types of <i>parties</i>: users and teams.
+                In both cases, there is a rotating list of constituents (be they
+                devices or team members), and as these constituents change, so
+                to does the corresponding active PUK or PTK. As such users and teams
+                share much protocol design and implementation mechanism.
+                </p>
+                <p class="text-start">
+                    In both cases, the set of keys that can sign on behalf of
+                    the party changes over time, and it's crucial for security that
+                    there is a careful accounting of these keys that resists
+                    tampering by the FOKS server.
+                </p>
+                <p class="text-start">
+                    To prevent tampering, FOKS uses "signatures chains", a linear
+                    chain of signatures that can be played back to verify 
+                    the ordering of signatures, and that each signature was performed
+                    with a key that was valid at the time of signing.
+                </p>
+           </div>
+           <div class="col-md-4">
+               <div class="text-center">
+                   <img src="/img/chain.webp" style="height: 300px;" />
+               </div>
+            </div>
+        </div> 
+        <div class="row mt-4 mb-4">
+            <div class="col-md-8">
+                <h3 class="fs-4">Merkle Trees</h3>
+                <p class="text-start">
+                    When different parties or computers access keys for a party,
+                    they do so via signature chains; they grab these chains from
+                    the server and play them back to discover the current set of
+                    keys that represent a party.
+                </p>
+                <p class="text-start">
+                    A compromised server can still cheat here by forking chains,
+                    or by withholding updates. A <i>Merkle Tree</i> is deployed
+                    on each federated host to hold it accountable to one consistent
+                    view of the world. Each signature link is immutably stored
+                    in the tree, preventing various forms of "vacilation."
+                </p>
+                <p class="text-start">
+                    FOKS further introduces a novel technique to hide 
+                    updates from outside observers with only simple cryptography
+                    (and without VRFs).
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img src="/img/tree.png" style="height: 300px;" />
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-8">
+                <h3 class="fs-4">Boring Hardened PQ Crypto</h3>
+                <p class="text-start">
+                    FOKS makes an effort to use the simplest, most boring, most hardened
+                    possible crypto. It makes extensive use of Go's standard
+                    implementation of the NaCl library. Whenever
+                    Diffie-Helman over Curve25519 is used, it's combined
+                    with the NIST-standardized ML-KEM algorithm
+                    to give post-quantum security.
+                </p>
+                <p class="text-start">
+                    We've made an effort to avoid fancier crypto like VRFs,
+                    SNARKs, STARKs, etc., in favor of simple primitives
+                    wherever possible. For instance, it might seem Neanderthal to
+                    use simple hashes instead of VRFs to hide positions of items on 
+                    our Merkle Tree. But do you know of any good PQ-secure VRFs?
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img src="/img/salt.png" style="height: 300px;" />
+                </div>
+            </div>
+        </div>
+    </div>

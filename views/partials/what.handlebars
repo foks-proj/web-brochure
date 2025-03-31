@@ -1,0 +1,136 @@
+
+    <!-- What Can It Do Section -->
+    <div id="what-can-it-do" class="container my-5">
+        <h2 class="text-center">What Can FOKS Do For Me?</h2>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-5 mb-3">
+                <div class="container">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <pre class="mb-0 text-start">
+$ {{#cb}}foks{{/cb}} git create secrets
+Created: foks://acme.co/alice/secrets
+
+$ {{#cb}}git{{/cb}} remote add origin foks://acme.co/alice/secrets
+
+$ {{#cb}}git{{/cb}} push origin main
+⏻ Initializing FOKS ... ✅ done
+️☝ ️Indexing packfiles ... ✅ done
+️⬆️ Pushing objects to remote ... ✅ done
+To foks://acme.co/alice/secrets
+ * [new branch]      main -> main
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-7">
+                <h3 class="fs-4">End-to-End Post-Quantum Encrypted Git Hosting</h3>
+                <p class="text-start">
+                    FOKS provides a secure, end-to-end encrypted Git hosting service. 
+                    Your data is encrypted on your machine before it is sent to the server,
+                    and the server never sees data or filenames in unencrypted form.
+                    This means that even if the server is compromised, your data is safe.
+                    FOKS is federated, so the git server can be one that
+                    you host, or one that is hosted for you.
+                </p>
+                <p class="text-start">
+                    Additionally, FOKS uses modern PQ-secure public-key cryptography, so all end-to-end
+                    encrypted data is safe from quantum attacks.
+                </p>
+            </div>
+        </div>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-5 mb-3">
+                <div class="container">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <pre class="mb-0 text-start">
+$ {{#cb}}foks{{/cb}} kv put /secrets/vitals/ssn 123-45-6789
+$ {{#cb}}foks{{/cb}} kv get /secrets/vitals/ssn -
+123-45-6789
+
+$ {{#cb}}foks{{/cb}} kv put -f /secrets/doc.pdf ~/doc.pdf
+$ {{#cb}}foks{{/cb}} kv get /secrets/doc.pdf /tmp/doc.pdf
+$ {{#cb}}diff{{/cb}} ~/doc.pdf /tmp/doc.pdf && echo "the same"
+the same
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h3 class="fs-4">End-to-End Post-Quantum Encrypted Key-Value Store</h3>
+                <p class="text-start">
+                    Internally, FOKS implements git atop an encrypted key-value store.
+                    Clients encrypt keys and values before sending them up to the server,
+                    and decrypts them upon retrieval. You can access
+                    this key-value store directly, which can store either 
+                    short strings, or large data files.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-4 mb-4">
+            <div class="col-md-5 mb-3">
+                <div class="container">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <pre class="mb-0 text-start">
+$ <span class="text-info">foks</span> team list-memberships
+owner    devops 
+member   marketing@widgets.org
+member   seo@gizmos.net  (via marketing@widgets.org)
+
+$ <span class="text-info">foks</span> team list devops
+owner    alice
+admin    bob
+member   charlie@widgets.org
+member   t:devops@gizmos.net
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h3 class="fs-4">Federated and Generalized Team Management</h3>
+                <p class="text-start">
+                    FOKS provides a federated and generalized team management system. 
+                    You can create teams, add members, and assign roles. 
+                    You can also delegate team management to other team members. 
+                    Teams can be members of other teams, allowing for complex
+                    team topologies that can mirror real-world organizations.
+                    Morever, teams can cross federated boundaries, allowing
+                    users on different FOKS servers to share data with end-to-end encryption.
+            </div>
+        </div>
+
+        <div class="row mt-4 mb-4">
+            <div class="col-md-5 mb-3">
+                <div class="container">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <pre class="mb-0 text-start">
+$ <span class="text-info">foks</span> device list
+* laptop 2024-05-04    computer      active
+  neither 3213         backup        active
+  YubiKey 5 NFC        yubikey       active
+  desktop 2023-04-01   computer      revoked
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h3 class="fs-4">Device Management with Full YubiKey Support</h3>
+                <p class="text-start">
+                    FOKS provides a device management system with full YubiKey support. 
+                    You can register your devices with FOKS and manage their access. 
+                    You can also revoke access to a device if it is lost or stolen. 
+                    Revoking triggers a cascading key-rotation across all teams you are members of,
+                    whether local or federated. This keeps data secure going forward.
+                </p>
+            </div>
+        </div>
+    </div>

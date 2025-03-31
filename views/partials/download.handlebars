@@ -1,0 +1,132 @@
+
+    <!-- Download and Install -->
+    <div id="download" class="container my-5">
+      <div class="row">
+        <div class="col-md-2"> </div>
+        <div class="col-md-8">
+        <div class="card-header">
+          <h3 class="text-center">Download And Install</h2>
+        </div>
+        <div class="card-body">
+            <!-- Tabs Navigation -->
+            <ul class="nav nav-tabs" id="installationTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="macos-tab" data-bs-toggle="tab" data-bs-target="#macos" type="button" role="tab" aria-controls="macos" aria-selected="false">macOS</button>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Linux</a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <button class="nav-link" id="linux-debian-tab" data-bs-toggle="tab" data-bs-target="#linux-debian" type="button" role="tab" aria-controls="linux-debian" aria-selected="false">Debian</button>
+                       </li>
+                      <li>
+                        <button class="nav-link" id="linux-ubuntu-tab" data-bs-toggle="tab" data-bs-target="#linux-ubuntu" type="button" role="tab" aria-controls="linux-ubuntu" aria-selected="false">Ubuntu</button>
+                      </li>
+                      <li>
+                        <button class="nav-link" id="linux-arch-tab" data-bs-toggle="tab" data-bs-target="#linux-arch" type="button" role="tab" aria-controls="linux-arch" aria-selected="false">Arch</button>
+                      </li>
+                    </ul>
+                  </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="source-tab" data-bs-toggle="tab" data-bs-target="#source" type="button" role="tab" aria-controls="linux" aria-selected="true">Source</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="windows-tab" data-bs-toggle="tab" data-bs-target="#windows" type="button" role="tab" aria-controls="windows" aria-selected="false">Windows</button>
+                </li>
+            </ul>
+
+            <!-- Tabs Content -->
+            <div class="tab-content" id="installationTabContent">
+                <!-- Windows Instructions -->
+                <div class="tab-pane fade" id="windows" role="tabpanel" aria-labelledby="windows-tab">
+                    <div class="p-3">
+                        <h5>Windows Installation</h5>
+                        <ol>
+                            <li>Download the installer from the official website.</li>
+                            <li>Double-click the downloaded file to start the installation.</li>
+                            <li>Follow the on-screen instructions to complete the setup.</li>
+                            <li>Launch the application from the Start Menu.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- macOS Instructions -->
+                <div class="tab-pane fade" id="macos" role="tabpanel" aria-labelledby="macos-tab">
+                    <div class="p-3">
+                        <h5>macOS Installation</h5>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start">
+$ brew install foks
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Linux Debian Instructions -->
+                <div class="tab-pane fade" id="linux-debian" role="tabpanel" aria-labelledby="linux-debian-tab">
+                    <div class="p-3">
+                        <h5>Debian Installation</h5>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start">
+$ apt install foks
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="linux-ubuntu" role="tabpanel" aria-labelledby="linux-ubuntu-tab">
+                    <div class="p-3">
+                        <h5>Ubuntu Installation</h5>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start">
+$ apt install foks
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="linux-arch" role="tabpanel" aria-labelledby="linux-arch-tab">
+                    <div class="p-3">
+                        <h5>Arch Linux Installation</h5>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start">
+$ pacman -S foks
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Source Instructions -->
+                <div class="tab-pane fade show active" id="source" role="tabpanel" aria-labelledby="source-tab">
+                    <div class="p-3">
+                        <h5>Build from Source</h5>
+                        <p class="text-start">
+                            To build FOKS from source, you will need a relatively-modern installation
+                            of <a href="https://go.dev">Go</a> on your system. And that's it.
+                        </p>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start">
+$ go install github.com/foks/go-foks/client/cmd/foks@latest
+$ (cd $(dirname $(which foks)) && ln -s foks git-remote-foks)
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        <div class="col-md-2"> </div>
+      </div>
+    </div>
