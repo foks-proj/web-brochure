@@ -118,15 +118,16 @@ $ pacman -S foks
                     <div class="p-3">
                         <h5>Build from Source</h5>
                         <p class="text-start">
-                            To build FOKS from source, you will need a relatively-modern installation
-                            of <a href="https://go.dev">Go</a> on your system. And that's it.
+                            To build FOKS from source, you will need a relatively-modern 
+                            <a href="https://go.dev">Go</a> 
+                            installation (1.23 or later). CGO is required to build SQLite.
                         </p>
                         <div class="card bg-dark text-white">
                           <div class="card-body">
                             <pre class="mb-0 mt-0 text-start">
-# COMING SOON!
 $ go install github.com/foks-proj/go-foks/client/cmd/foks@latest
 $ (cd $(dirname $(which foks)) && ln -s foks git-remote-foks)
+$ foks ctl start # start the FOKS agent
                             </pre>
                             </div>
                         </div>
