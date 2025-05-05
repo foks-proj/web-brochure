@@ -51,7 +51,7 @@
     <div class="container-fluid bg-primary text-white text-center py-4">
         <div class="row align-items-center">
          <div class="col-md-7"><h1 class="display-1">FOKS</h1>
-            <h2>the Federated Open Key Service (COMING SOON!)</h2>
+            <h2>the Federated Open Key Service (in alpha)</h2>
         </div>
          <div class="col-md-4">
             <img src="/img/foks.png" style="height: 200px" />
@@ -517,6 +517,9 @@ $ <span class="text-info">foks</span> key list
                       <li>
                         <button class="nav-link" id="linux-arch-tab" data-bs-toggle="tab" data-bs-target="#linux-arch" type="button" role="tab" aria-controls="linux-arch" aria-selected="false">Arch</button>
                       </li>
+                      <li>
+                        <button class="nav-link" id="linux-fedora-tab" data-bs-toggle="tab" data-bs-target="#linux-fedora" type="button" role="tab" aria-controls="linux-fedora" aria-selected="false">Fedora</button>
+                      </li>
                     </ul>
                   </li>
                 <li class="nav-item" role="presentation">
@@ -565,8 +568,11 @@ $ brew install foks
                         <div class="card bg-dark text-white">
                           <div class="card-body">
                             <pre class="mb-0 mt-0 text-start">
-# COMING SOON!
-$ apt install foks
+# For first time installation...                            
+$ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
+
+# For subsequent installs after apt sources are in place:
+$ apt-get install foks
                             </pre>
                             </div>
                         </div>
@@ -579,8 +585,11 @@ $ apt install foks
                         <div class="card bg-dark text-white">
                           <div class="card-body">
                             <pre class="mb-0 mt-0 text-start">
-# COMING SOON!
-$ apt install foks
+# For first time installation...                            
+$ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
+
+# For subsequent installs after apt sources are in place:
+$ apt-get install foks
                             </pre>
                             </div>
                         </div>
@@ -601,21 +610,39 @@ $ pacman -S foks
                     </div>
                 </div>
 
+                <div class="tab-pane fade" id="linux-fedora" role="tabpanel" aria-labelledby="linux-fedoratab">
+                    <div class="p-3">
+                        <h5>Fedora Linux Installation (</h5>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start">
+# For first time installation...                            
+$ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
+
+# For subsequent installs after apt sources are in place:
+dnf install foks
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
                 <!-- Source Instructions -->
                 <div class="tab-pane fade show active" id="source" role="tabpanel" aria-labelledby="source-tab">
                     <div class="p-3">
                         <h5>Build from Source</h5>
                         <p class="text-start">
-                            To build FOKS from source, you will need a relatively-modern installation
-                            of <a href="https://go.dev">Go</a> on your system. And that's it.
+                            To build FOKS from source, you will need a relatively-modern 
+                            <a href="https://go.dev">Go</a> 
+                            installation (1.23 or later). CGO is required to build SQLite.
                         </p>
                         <div class="card bg-dark text-white">
                           <div class="card-body">
                             <pre class="mb-0 mt-0 text-start">
-# COMING SOON!
-$ go install github.com/foks-proj/go-foks/client/cmd/foks@latest
+$ go install github.com/foks-proj/go-foks/client/foks@latest
 $ (cd $(dirname $(which foks)) && ln -s foks git-remote-foks)
+$ foks ctl start # start the FOKS agent
                             </pre>
                             </div>
                         </div>
@@ -656,8 +683,10 @@ $ (cd $(dirname $(which foks)) && ln -s foks git-remote-foks)
     <div class="col-md-8">
     <h2 class="text-center">Source Code</h2>
     <p class="text-start">
-        The source code for FOKS is openly available on GitHub. You can clone the repository
-        and build the project yourself. We welcome contributions and pull requests.
+        The source code for FOKS is openly available on 
+        <a href="https://github.com/foks-proj/go-foks">GitHub</a>. 
+        You can clone the repository and build the project yourself.
+        We welcome contributions and pull requests.
     </p>
     </div>
     <div class="col-md-2"></div> 
