@@ -22,6 +22,9 @@ const hbs = hbCreate({
   helpers : {
     cb: function(options) {
       return new handlebars.SafeString('<span class="text-info">' + options.fn(this) + '</span>');
+    },
+    shcom : function(options) {
+      return new handlebars.SafeString('<span class="text-secondary">' + options.fn(this) + '</span>');
     }
   } 
 })

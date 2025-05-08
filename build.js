@@ -29,6 +29,9 @@ fs.readdirSync(partialsDir).forEach(file => {
 handlebars.registerHelper('cb', function (options) {
   return new handlebars.SafeString('<span class="text-info">' + options.fn(this) + '</span>');
 });
+handlebars.registerHelper('shcom', function (options) {
+  return new handlebars.SafeString('<span class="text-secondary">' + options.fn(this) + '</span>');
+});
 
 const layoutSrc = fs.readFileSync(path.join(layoutsDir, 'main.handlebars'), 'utf8');
 const layoutTemplate = handlebars.compile(layoutSrc);
@@ -68,14 +71,3 @@ imgFiles.forEach(file => {
   );
 });
 console.log('Images copied to dist/img');
-
-// copy Prism.js files
-fs.copyFileSync(
-  path.join(__dirname, 'node_modules/prismjs/prism.js'),
-  path.join(jsOutputDir, 'prism.js')
-);
-fs.copyFileSync(
-  path.join(__dirname, 'node_modules/prismjs/themes/prism-tomorrow.css'),
-  path.join(cssOutputDir, 'prism.css')
-);
-console.log('Prism.js files copied to dist directory');

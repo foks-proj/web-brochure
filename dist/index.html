@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Federated Open Key Service (FOKS)</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/prism.css" rel="stylesheet">
   </head>
   <body>
 
@@ -444,7 +443,7 @@ $ <span class="text-info">foks</span> key list
         <div class="row mt-4 mb-4">
             <div class="col-md-4">
                 <div class="text-center">
-                <img src="/img/federation.png" style="height: 200px;" />
+                <img src="/img/federation.png" style="width: 200px;" />
                 </div>  
             </div>  
             <div class="col-md-8">
@@ -551,11 +550,20 @@ $ <span class="text-info">foks</span> key list
                 <div class="tab-pane fade" id="macos" role="tabpanel" aria-labelledby="macos-tab">
                     <div class="p-3">
                         <h5>macOS Installation</h5>
+
+                        <p class="text-start">
+Automated install for macOS uses <a href="https://brew.sh">homebrew</a>. Though
+it's possible to build FOKS from a source formula, we instead use the prebuilt
+Cask distribution method. As such, you'll get a binary signed by the
+FOKS developers (<a href="https://ne43.com">NE43 INC (L2W77ZPF94)</a>). 
+A signed binary with a known author allows for password-free access to the <i>foks</i>
+items in the macOS keychain. Without it, you'd have to enter multiple
+administrator passwords on every upgrade.
+                          </p>
+
                         <div class="card bg-dark text-white">
                           <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start language-shell">
-# via Brew: uses a cask (rather than a built formula) to get a signed binary;
-# which in turn provides password-free access to the "FOKS" keychain item.
+                            <pre class="mb-0 mt-0 text-start">
 $ brew install foks
                             </pre>
                             </div>
@@ -569,11 +577,11 @@ $ brew install foks
                         <h5>Debian Installation</h5>
                         <div class="card bg-dark text-white">
                           <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start language-shell">
-# For first time installation...                            
+                            <pre class="mb-0 mt-0 text-start">
+<span class="text-secondary"># For first time installation...</span>
 $ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
 
-# For subsequent installs after apt sources are in place:
+<span class="text-secondary"># For subsequent installs after apt sources are in place:</span>
 $ apt-get install foks
                             </pre>
                             </div>
@@ -587,10 +595,10 @@ $ apt-get install foks
                         <div class="card bg-dark text-white">
                           <div class="card-body">
                             <pre class="mb-0 mt-0 text-start language-shell">
-# For first time installation...
+<span class="text-secondary"># For first time installation...</span>
 $ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
 
-# For subsequent installs after apt sources are in place:
+<span class="text-secondary"># For subsequent installs after apt sources are in place:</span>
 $ apt-get install foks
                             </pre>
                             </div>
@@ -618,10 +626,10 @@ $ pacman -S foks
                         <div class="card bg-dark text-white">
                           <div class="card-body">
                             <pre class="mb-0 mt-0 text-start language-shell">
-# For first time installation...
+<span class="text-secondary"># For first time installation...</span>
 $ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
 
-# For subsequent installs after apt sources are in place:
+<span class="text-secondary"># For subsequent installs after apt sources are in place:</span>
 $ dnf install foks
                             </pre>
                             </div>
@@ -644,7 +652,7 @@ $ dnf install foks
                             <pre class="mb-0 mt-0 text-start language-shell">
 $ go install github.com/foks-proj/go-foks/client/foks@latest
 $ (cd $(dirname $(which foks)) && ln -s foks git-remote-foks)
-$ foks ctl start # start the FOKS agent
+$ foks ctl start 
                             </pre>
                             </div>
                         </div>
@@ -720,6 +728,5 @@ $ foks ctl start # start the FOKS agent
     </footer>
 
     <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/prism.js"></script>
 </body>
 </html> 

@@ -58,11 +58,20 @@
                 <div class="tab-pane fade" id="macos" role="tabpanel" aria-labelledby="macos-tab">
                     <div class="p-3">
                         <h5>macOS Installation</h5>
+
+                        <p class="text-start">
+Automated install for macOS uses <a href="https://brew.sh">homebrew</a>. Though
+it's possible to build FOKS from a source formula, we instead use the prebuilt
+Cask distribution method. As such, you'll get a binary signed by the
+FOKS developers (<a href="https://ne43.com">NE43 INC (L2W77ZPF94)</a>). 
+A signed binary with a known author allows for password-free access to the <i>foks</i>
+items in the macOS keychain. Without it, you'd have to enter multiple
+administrator passwords on every upgrade.
+                          </p>
+
                         <div class="card bg-dark text-white">
                           <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start language-shell">
-# via Brew: uses a cask (rather than a built formula) to get a signed binary;
-# which in turn provides password-free access to the "FOKS" keychain item.
+                            <pre class="mb-0 mt-0 text-start">
 $ brew install foks
                             </pre>
                             </div>
@@ -76,11 +85,11 @@ $ brew install foks
                         <h5>Debian Installation</h5>
                         <div class="card bg-dark text-white">
                           <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start language-shell">
-# For first time installation...                            
+                            <pre class="mb-0 mt-0 text-start">
+{{#shcom}}# For first time installation...{{/shcom}}
 $ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
 
-# For subsequent installs after apt sources are in place:
+{{#shcom}}# For subsequent installs after apt sources are in place:{{/shcom}}
 $ apt-get install foks
                             </pre>
                             </div>
@@ -94,10 +103,10 @@ $ apt-get install foks
                         <div class="card bg-dark text-white">
                           <div class="card-body">
                             <pre class="mb-0 mt-0 text-start language-shell">
-# For first time installation...
+{{#shcom}}# For first time installation...{{/shcom}}
 $ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
 
-# For subsequent installs after apt sources are in place:
+{{#shcom}}# For subsequent installs after apt sources are in place:{{/shcom}}
 $ apt-get install foks
                             </pre>
                             </div>
@@ -125,10 +134,10 @@ $ pacman -S foks
                         <div class="card bg-dark text-white">
                           <div class="card-body">
                             <pre class="mb-0 mt-0 text-start language-shell">
-# For first time installation...
+{{#shcom}}# For first time installation...{{/shcom}}
 $ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
 
-# For subsequent installs after apt sources are in place:
+{{#shcom}}# For subsequent installs after apt sources are in place:{{/shcom}}
 $ dnf install foks
                             </pre>
                             </div>
