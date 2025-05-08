@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Federated Open Key Service (FOKS)</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/prism.css" rel="stylesheet">
   </head>
   <body>
 
@@ -552,8 +553,9 @@ $ <span class="text-info">foks</span> key list
                         <h5>macOS Installation</h5>
                         <div class="card bg-dark text-white">
                           <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start">
-# COMING SOON!
+                            <pre class="mb-0 mt-0 text-start language-shell">
+# via Brew: uses a cask (rather than a built formula) to get a signed binary;
+# which in turn provides password-free access to the "FOKS" keychain item.
 $ brew install foks
                             </pre>
                             </div>
@@ -567,7 +569,7 @@ $ brew install foks
                         <h5>Debian Installation</h5>
                         <div class="card bg-dark text-white">
                           <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start">
+                            <pre class="mb-0 mt-0 text-start language-shell">
 # For first time installation...                            
 $ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
 
@@ -584,7 +586,7 @@ $ apt-get install foks
                         <h5>Ubuntu Installation</h5>
                         <div class="card bg-dark text-white">
                           <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start">
+                            <pre class="mb-0 mt-0 text-start language-shell">
 # For first time installation...
 $ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
 
@@ -601,7 +603,7 @@ $ apt-get install foks
                         <h5>Arch Linux Installation</h5>
                         <div class="card bg-dark text-white">
                           <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start">
+                            <pre class="mb-0 mt-0 text-start language-shell">
 # COMING SOON!
 $ pacman -S foks
                             </pre>
@@ -615,7 +617,7 @@ $ pacman -S foks
                         <h5>Fedora Linux Installation</h5>
                         <div class="card bg-dark text-white">
                           <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start">
+                            <pre class="mb-0 mt-0 text-start language-shell">
 # For first time installation...
 $ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
 
@@ -639,7 +641,7 @@ $ dnf install foks
                         </p>
                         <div class="card bg-dark text-white">
                           <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start">
+                            <pre class="mb-0 mt-0 text-start language-shell">
 $ go install github.com/foks-proj/go-foks/client/foks@latest
 $ (cd $(dirname $(which foks)) && ln -s foks git-remote-foks)
 $ foks ctl start # start the FOKS agent
@@ -718,5 +720,6 @@ $ foks ctl start # start the FOKS agent
     </footer>
 
     <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/prism.js"></script>
 </body>
 </html> 

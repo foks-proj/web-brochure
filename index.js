@@ -9,7 +9,8 @@ const port = 3002
 const topPublic = "public";
 const publicDirs = [
   topPublic,
-  "node_modules/bootstrap/dist/"
+  "node_modules/bootstrap/dist/",
+  "dist"
 ];
 
 function absDir(s) { return path.join(__dirname, s); }

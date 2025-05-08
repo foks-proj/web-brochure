@@ -68,3 +68,14 @@ imgFiles.forEach(file => {
   );
 });
 console.log('Images copied to dist/img');
+
+// copy Prism.js files
+fs.copyFileSync(
+  path.join(__dirname, 'node_modules/prismjs/prism.js'),
+  path.join(jsOutputDir, 'prism.js')
+);
+fs.copyFileSync(
+  path.join(__dirname, 'node_modules/prismjs/themes/prism-tomorrow.css'),
+  path.join(cssOutputDir, 'prism.css')
+);
+console.log('Prism.js files copied to dist directory');

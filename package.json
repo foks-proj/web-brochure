@@ -12,6 +12,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "express": "^5.1.0",
-    "express-handlebars": "^8.0.1"
+    "express-handlebars": "^8.0.1",
+    "prismjs": "^1.30.0"
   }
 }
