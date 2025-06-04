@@ -36,6 +36,9 @@
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="windows-tab" data-bs-toggle="tab" data-bs-target="#windows" type="button" role="tab" aria-controls="windows" aria-selected="false">Windows</button>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="server-tab" data-bs-toggle="tab" data-bs-target="#server" type="button" role="tab" aria-controls="server" aria-selected="false">Server</button>
+                </li>
             </ul>
 
             <!-- Tabs Content -->
@@ -162,6 +165,23 @@ $ dnf install foks
 $ go install github.com/foks-proj/go-foks/client/foks@latest
 $ (cd $(dirname $(which foks)) && ln -s foks git-remote-foks)
 $ foks ctl start 
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Server Instructions -->
+                <div class="tab-pane fade show active" id="server" role="tabpanel" aria-labelledby="source-tab">
+                    <div class="p-3">
+                        <h5>Server</h5>
+                        <p class="text-start">
+                           BYO VM (via cloud-provider) or bare-metal server. 
+                        </p>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start language-shell">
+$ /usr/bin/env bash &lt;(curl -fsSL https://pkgs.foks.pub/server-install.sh)
                             </pre>
                             </div>
                         </div>
