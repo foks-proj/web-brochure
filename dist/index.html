@@ -664,16 +664,28 @@ $ foks ctl start
                 </div>
 
                 <!-- Server Instructions -->
-                <div class="tab-pane fade show active" id="server" role="tabpanel" aria-labelledby="source-tab">
+                <div class="tab-pane fade" id="server" role="tabpanel" aria-labelledby="source-tab">
                     <div class="p-3">
                         <h5>Server</h5>
                         <p class="text-start">
-                           BYO VM (via cloud-provider) or bare-metal server. 
+                           BYO VM (via cloud-provider) or bare-metal server. Requires <a href="https://docker.io">docker-compose</a>.
                         </p>
                         <div class="card bg-dark text-white">
                           <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start language-shell">
+                            <pre class="mb-0 mt-0 pb-0 text-start language-shell">
 $ /usr/bin/env bash &lt;(curl -fsSL https://pkgs.foks.pub/server-install.sh)
+                            </pre>
+                            </div>
+                        </div>
+                        <p class="text-start mt-4">
+                          Or you can build the above from source:
+                        </p>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 pb-0 text-start language-shell">
+$ go install github.com/foks-proj/go-foks/server/foks-tool@latest
+$ foks-tool standup --interactive
+$ docker-compose up -d
                             </pre>
                             </div>
                         </div>
