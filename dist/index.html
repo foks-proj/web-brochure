@@ -515,10 +515,10 @@ $ <span class="text-info">foks</span> key list
                         <button class="nav-link" id="linux-ubuntu-tab" data-bs-toggle="tab" data-bs-target="#linux-ubuntu" type="button" role="tab" aria-controls="linux-ubuntu" aria-selected="false">Ubuntu</button>
                       </li>
                       <li>
-                        <button class="nav-link" id="linux-arch-tab" data-bs-toggle="tab" data-bs-target="#linux-arch" type="button" role="tab" aria-controls="linux-arch" aria-selected="false">Arch</button>
+                        <button class="nav-link" id="linux-fedora-tab" data-bs-toggle="tab" data-bs-target="#linux-fedora" type="button" role="tab" aria-controls="linux-fedora" aria-selected="false">Fedora</button>
                       </li>
                       <li>
-                        <button class="nav-link" id="linux-fedora-tab" data-bs-toggle="tab" data-bs-target="#linux-fedora" type="button" role="tab" aria-controls="linux-fedora" aria-selected="false">Fedora</button>
+                        <button class="nav-link" id="linux-static-tab" data-bs-toggle="tab" data-bs-target="#linux-static" type="button" role="tab" aria-controls="linux-static" aria-selected="false">Static Binary</button>
                       </li>
                     </ul>
                   </li>
@@ -610,28 +610,14 @@ $ apt-get install foks
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="linux-arch" role="tabpanel" aria-labelledby="linux-arch-tab">
-                    <div class="p-3">
-                        <h5>Arch Linux Installation</h5>
-                        <div class="card bg-dark text-white">
-                          <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start language-shell">
-# COMING SOON!
-$ pacman -S foks
-                            </pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tab-pane fade" id="linux-fedora" role="tabpanel" aria-labelledby="linux-fedoratab">
+                <div class="tab-pane fade" id="linux-fedora" role="tabpanel" aria-labelledby="linux-fedora-tab">
                     <div class="p-3">
                         <h5>Fedora Linux Installation</h5>
                         <div class="card bg-dark text-white">
                           <div class="card-body">
                             <pre class="mb-0 mt-0 text-start language-shell">
 <span class="text-secondary"># For first time installation...</span>
-$ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
+$ curl -fsSL https://pkgs.foks.pub/install.sh  | sh
 
 <span class="text-secondary"># For subsequent installs after apt sources are in place:</span>
 $ dnf install foks
@@ -641,6 +627,19 @@ $ dnf install foks
                     </div>
                 </div>
 
+                <div class="tab-pane fade" id="linux-static" role="tabpanel" aria-labelledby="linux-static-tab">
+                    <div class="p-3">
+                        <h5>Static Linux Binary</h5>
+                        <div class="card bg-dark text-white">
+                          <div class="card-body">
+                            <pre class="mb-0 mt-0 text-start language-shell">
+<span class="text-secondary"># Will not auto-update...</span>
+$ curl -fsSL https://pkgs.foks.pub/install-static.sh  | sh
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Source Instructions -->
                 <div class="tab-pane fade show active" id="source" role="tabpanel" aria-labelledby="source-tab">
