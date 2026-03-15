@@ -3,19 +3,164 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Federated Open Key Service (FOKS)</title>
+    <title>FOKS - Federated Open Key Service</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      :root {
+        --foks-dark: #1b1f2e;
+        --foks-accent: #0d8a84;
+        --foks-accent-hover: #0b756f;
+        --foks-muted: #6c7a89;
+        --foks-alt-bg: #f5f7fa;
+        --foks-border: #e0e4ea;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        color: #2e3440;
+        line-height: 1.7;
+      }
+
+      /* Nav */
+      .navbar { border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .navbar-brand { font-weight: 700; font-size: 1.25rem; letter-spacing: 0.5px; }
+
+      /* Hero */
+      .hero-section {
+        background: var(--foks-dark);
+        color: #fff;
+        padding: 4.5rem 1rem 3.5rem;
+      }
+      .hero-section h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+      .hero-section h2 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #a0aab4;
+        max-width: 540px;
+      }
+      .hero-section img {
+        max-height: 180px;
+        opacity: 0.92;
+      }
+
+      /* Sections */
+      .section { padding: 3.5rem 0; }
+      .section-alt { background: var(--foks-alt-bg); }
+      .section h2 {
+        font-size: 1.65rem;
+        font-weight: 700;
+        margin-bottom: 1.75rem;
+      }
+      .section h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 0.6rem;
+      }
+      .section p { color: #444c56; }
+
+      /* Feature rows (what, how, why) */
+      .feature-row { margin-bottom: 2.5rem; }
+      .feature-row:last-child { margin-bottom: 0; }
+      .feature-row img {
+        max-width: 100%;
+        max-height: 220px;
+        object-fit: contain;
+      }
+
+      /* Code blocks */
+      .code-card {
+        background: #1e2433;
+        border: 1px solid #2a3040;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .code-card pre {
+        margin: 0;
+        padding: 1rem 1.25rem;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        color: #c8ccd4;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      /* Download tabs */
+      .nav-tabs .nav-link { font-size: 0.9rem; }
+      .tab-content .code-card { border-radius: 0 0 8px 8px; }
+
+      /* White paper card */
+      .whitepaper-card {
+        border: 2px solid var(--foks-border);
+        border-radius: 12px;
+        padding: 2.5rem 2rem;
+        background: #fff;
+      }
+      .whitepaper-card h2 { margin-bottom: 0.75rem; }
+      .whitepaper-card p { color: #555; margin-bottom: 1.5rem; }
+      .whitepaper-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      /* Accordions */
+      .accordion-item { border-color: var(--foks-border); }
+      .accordion-button {
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 1rem 1.25rem;
+      }
+      .accordion-button:not(.collapsed) {
+        background: var(--foks-alt-bg);
+        color: var(--foks-dark);
+        box-shadow: none;
+      }
+      .accordion-button:focus { box-shadow: none; border-color: var(--foks-border); }
+      .accordion-body p { color: #444c56; }
+
+      /* Small utility sections */
+      .compact-section { padding: 2.5rem 0; }
+      .compact-section h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+
+      /* CTA buttons */
+      .btn-foks {
+        background: var(--foks-accent);
+        border-color: var(--foks-accent);
+        color: #fff;
+      }
+      .btn-foks:hover {
+        background: var(--foks-accent-hover);
+        border-color: var(--foks-accent-hover);
+        color: #fff;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--foks-dark);
+        color: var(--foks-muted);
+        padding: 2rem 1rem;
+      }
+      footer a { color: #a0aab4; }
+
+      /* Responsiveness */
+      @media (max-width: 767px) {
+        .hero-section h1 { font-size: 2.2rem; }
+        .hero-section { padding: 3rem 1rem 2.5rem; }
+        .section { padding: 2.5rem 0; }
+        .feature-row img { max-height: 160px; margin-bottom: 1rem; }
+      }
+    </style>
   </head>
   <body>
 
     {{{body}}}
 
-    <!-- Footer -->
-    <footer class="bg-light text-center py-4">
-        <p>&copy; 2025 
-          <a href="https://ne43.com">ne43, Inc</a>. All rights reserved.</p>
+    <footer class="text-center">
+      <p class="mb-0">&copy; 2025 <a href="https://ne43.com">ne43, Inc</a>. All rights reserved.</p>
     </footer>
 
     <script src="/js/bootstrap.bundle.min.js"></script>
-</body>
-</html> 
+  </body>
+</html>

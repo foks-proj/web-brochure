@@ -1,13 +1,11 @@
 
     <!-- Download and Install -->
-    <div id="download" class="container my-5">
-      <div class="row">
-        <div class="col-md-2"> </div>
-        <div class="col-md-8">
-        <div class="card-header">
-          <h3 class="text-center">Download And Install</h2>
-        </div>
-        <div class="card-body">
+    <div id="download" class="section section-alt">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+            <h2 class="text-center">Download &amp; Install</h2>
+
             <!-- Tabs Navigation -->
             <ul class="nav nav-tabs" id="installationTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -34,7 +32,7 @@
                     </ul>
                   </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="source-tab" data-bs-toggle="tab" data-bs-target="#source" type="button" role="tab" aria-controls="linux" aria-selected="true">Source</button>
+                    <button class="nav-link active" id="source-tab" data-bs-toggle="tab" data-bs-target="#source" type="button" role="tab" aria-controls="source" aria-selected="true">Source</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="windows-tab" data-bs-toggle="tab" data-bs-target="#windows" type="button" role="tab" aria-controls="windows" aria-selected="false">Windows</button>
@@ -50,13 +48,10 @@
                 <div class="tab-pane fade" id="windows" role="tabpanel" aria-labelledby="windows-tab">
                     <div class="p-3">
                         <h5>Windows Installation</h5>
-                        <div class="card bg-dark text-white">
-                          <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start">
+                        <div class="code-card">
+                            <pre>
 # Via winget package manager
-> winget install foks
-                            </pre>
-                            </div>
+> winget install foks</pre>
                         </div>
                     </div>
                 </div>
@@ -65,24 +60,18 @@
                 <div class="tab-pane fade" id="macos" role="tabpanel" aria-labelledby="macos-tab">
                     <div class="p-3">
                         <h5>macOS Installation</h5>
-
-                        <p class="text-start">
-Automated install for macOS uses <a href="https://brew.sh">homebrew</a>. Though
-it's possible to build FOKS from a source formula, we instead use the prebuilt
-Cask distribution method. As such, you'll get a binary signed by the
-FOKS developers (<a href="https://ne43.com">NE43 INC (L2W77ZPF94)</a>). 
-A signed binary with a known author allows for password-free access to the <i>foks</i>
-items in the macOS keychain. Without it, you'd have to enter multiple
-administrator passwords on every upgrade.
-                          </p>
-
-                        <div class="card bg-dark text-white">
-                          <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start">
-$ brew install foks
-                            </pre>
-                            </div>
+                        <div class="code-card">
+                            <pre>
+$ brew install foks</pre>
                         </div>
+                        <p class="mt-3">
+Uses <a href="https://brew.sh">homebrew</a>, with precompiled
+binary signed by 
+the FOKS developers (<a href="https://ne43.com">NE43 INC (L2W77ZPF94)</a>).
+Signing allows password-free access to <i>foks</i>
+macOS keychain items. Without it, you'd have to enter multiple
+administrator passwords on every upgrade.
+                        </p>
                     </div>
                 </div>
 
@@ -90,16 +79,13 @@ $ brew install foks
                 <div class="tab-pane fade" id="linux-debian" role="tabpanel" aria-labelledby="linux-debian-tab">
                     <div class="p-3">
                         <h5>Debian Installation</h5>
-                        <div class="card bg-dark text-white">
-                          <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start">
+                        <div class="code-card">
+                            <pre>
 {{#shcom}}# For first time installation...{{/shcom}}
 $ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
 
 {{#shcom}}# For subsequent installs after apt sources are in place:{{/shcom}}
-$ apt-get install foks
-                            </pre>
-                            </div>
+$ apt-get install foks</pre>
                         </div>
                     </div>
                 </div>
@@ -107,16 +93,13 @@ $ apt-get install foks
                 <div class="tab-pane fade" id="linux-ubuntu" role="tabpanel" aria-labelledby="linux-ubuntu-tab">
                     <div class="p-3">
                         <h5>Ubuntu Installation</h5>
-                        <div class="card bg-dark text-white">
-                          <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start language-shell">
+                        <div class="code-card">
+                            <pre>
 {{#shcom}}# For first time installation...{{/shcom}}
 $ curl -fsSL  https://pkgs.foks.pub/install.sh  | sh
 
 {{#shcom}}# For subsequent installs after apt sources are in place:{{/shcom}}
-$ apt-get install foks
-                            </pre>
-                            </div>
+$ apt-get install foks</pre>
                         </div>
                     </div>
                 </div>
@@ -124,16 +107,13 @@ $ apt-get install foks
                 <div class="tab-pane fade" id="linux-fedora" role="tabpanel" aria-labelledby="linux-fedora-tab">
                     <div class="p-3">
                         <h5>Fedora Linux Installation</h5>
-                        <div class="card bg-dark text-white">
-                          <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start language-shell">
+                        <div class="code-card">
+                            <pre>
 {{#shcom}}# For first time installation...{{/shcom}}
 $ curl -fsSL https://pkgs.foks.pub/install.sh  | sh
 
 {{#shcom}}# For subsequent installs after apt sources are in place:{{/shcom}}
-$ dnf install foks
-                            </pre>
-                            </div>
+$ dnf install foks</pre>
                         </div>
                     </div>
                 </div>
@@ -141,13 +121,10 @@ $ dnf install foks
                 <div class="tab-pane fade" id="linux-arch" role="tabpanel" aria-labelledby="linux-arch-tab">
                     <div class="p-3">
                         <h5>Arch Linux Installation</h5>
-                        <div class="card bg-dark text-white">
-                          <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start language-shell">
-# Works via AUR                      
-$ yay -Sy go-foks
-                            </pre>
-                            </div>
+                        <div class="code-card">
+                            <pre>
+# Works via AUR
+$ yay -Sy go-foks</pre>
                         </div>
                     </div>
                 </div>
@@ -155,13 +132,10 @@ $ yay -Sy go-foks
                 <div class="tab-pane fade" id="linux-static" role="tabpanel" aria-labelledby="linux-static-tab">
                     <div class="p-3">
                         <h5>Static Linux Binary</h5>
-                        <div class="card bg-dark text-white">
-                          <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start language-shell">
+                        <div class="code-card">
+                            <pre>
 {{#shcom}}# Will not auto-update...{{/shcom}}
-$ curl -fsSL https://pkgs.foks.pub/install-static.sh  | sh
-                            </pre>
-                            </div>
+$ curl -fsSL https://pkgs.foks.pub/install-static.sh  | sh</pre>
                         </div>
                     </div>
                 </div>
@@ -170,55 +144,45 @@ $ curl -fsSL https://pkgs.foks.pub/install-static.sh  | sh
                 <div class="tab-pane fade show active" id="source" role="tabpanel" aria-labelledby="source-tab">
                     <div class="p-3">
                         <h5>Build from Source</h5>
-                        <p class="text-start">
-                            To build FOKS from source, you will need a relatively-modern 
-                            <a href="https://go.dev">Go</a> 
+                        <p>
+                            To build FOKS from source, you will need a relatively-modern
+                            <a href="https://go.dev">Go</a>
                             installation (1.23 or later). CGO is required to build SQLite.
                         </p>
-                        <div class="card bg-dark text-white">
-                          <div class="card-body">
-                            <pre class="mb-0 mt-0 text-start language-shell">
+                        <div class="code-card">
+                            <pre>
 $ go install github.com/foks-proj/go-foks/client/foks@latest
 $ (cd $(dirname $(which foks)) && ln -s foks git-remote-foks)
-$ foks ctl start 
-                            </pre>
-                            </div>
+$ foks ctl start</pre>
                         </div>
                     </div>
                 </div>
 
                 <!-- Server Instructions -->
-                <div class="tab-pane fade" id="server" role="tabpanel" aria-labelledby="source-tab">
+                <div class="tab-pane fade" id="server" role="tabpanel" aria-labelledby="server-tab">
                     <div class="p-3">
                         <h5>Server</h5>
-                        <p class="text-start">
+                        <p>
                            BYO VM (via cloud-provider) or bare-metal server. Requires <a href="https://docker.io">docker-compose</a>.
                         </p>
-                        <div class="card bg-dark text-white">
-                          <div class="card-body">
-                            <pre class="mb-0 mt-0 pb-0 text-start language-shell">
-$ /usr/bin/env bash &lt;(curl -fsSL https://pkgs.foks.pub/server-install.sh)
-                            </pre>
-                            </div>
+                        <div class="code-card">
+                            <pre>
+$ /usr/bin/env bash &lt;(curl -fsSL https://pkgs.foks.pub/server-install.sh)</pre>
                         </div>
-                        <p class="text-start mt-4">
+                        <p class="mt-3">
                           Or you can build the above from source:
                         </p>
-                        <div class="card bg-dark text-white">
-                          <div class="card-body">
-                            <pre class="mb-0 mt-0 pb-0 text-start language-shell">
+                        <div class="code-card">
+                            <pre>
 $ go install github.com/foks-proj/go-foks/server/foks-tool@latest
 $ foks-tool standup --interactive
-$ docker-compose up -d
-                            </pre>
-                            </div>
+$ docker-compose up -d</pre>
                         </div>
                     </div>
                 </div>
 
             </div>
+            </div>
+          </div>
         </div>
-        </div>
-        <div class="col-md-2"> </div>
-      </div>
     </div>
