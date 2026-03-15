@@ -91,6 +91,35 @@
       .nav-tabs .nav-link { font-size: 0.9rem; }
       .tab-content .code-card { border-radius: 0 0 8px 8px; }
 
+      /* White paper card */
+      .whitepaper-card {
+        border: 2px solid var(--foks-border);
+        border-radius: 12px;
+        padding: 2.5rem 2rem;
+        background: #fff;
+      }
+      .whitepaper-card h2 { margin-bottom: 0.75rem; }
+      .whitepaper-card p { color: #555; margin-bottom: 1.5rem; }
+      .whitepaper-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      /* Accordions */
+      .accordion-item { border-color: var(--foks-border); }
+      .accordion-button {
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 1rem 1.25rem;
+      }
+      .accordion-button:not(.collapsed) {
+        background: var(--foks-alt-bg);
+        color: var(--foks-dark);
+        box-shadow: none;
+      }
+      .accordion-button:focus { box-shadow: none; border-color: var(--foks-border); }
+      .accordion-body p { color: #444c56; }
+
       /* Small utility sections */
       .compact-section { padding: 2.5rem 0; }
       .compact-section h2 { font-size: 1.4rem; margin-bottom: 1rem; }
