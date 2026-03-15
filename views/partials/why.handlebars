@@ -1,43 +1,42 @@
 
     <!-- Principles section -->
-    <div id="why" class="container my-5">
+    <div id="why" class="section section-alt">
+        <div class="container">
         <h2 class="text-center">Guiding Principles</h2>
-        <div class="row mt-4 mb-4">
-            <div class="col-md-4 mt-2 mb-2">
-                <div class="text-center">
-                <img src="/img/vault.jpg" style="height: 200px;" />
-                </div>
+
+        <div class="row align-items-center feature-row">
+            <div class="col-md-3 text-center mb-3 mb-md-0">
+                <img src="/img/vault.jpg" alt="Security" class="img-fluid" style="max-height: 180px;" />
             </div>
-            <div class="col-md-8">
-                <h3 class="fs-4">Security & Integrity</h3>
-                <p class="text-start">
+            <div class="col-md-9">
+                <h3>Security &amp; Integrity</h3>
+                <p>
                     The world has become accustomed to strong end-to-end encryption
                     and integrity for ephemeral messaging. Other applications have not enjoyed the same
                     level of security. FOKS aims currently to provide the best possible
-                    security for long-lived data, like persistent file storage (Git) 
+                    security for long-lived data, like persistent file storage (Git)
                     and persistent key-value storage.
                 </p>
-                <p class="text-start">
+                <p>
                     FOKS is designed from a security-first perspective, and not
                     as a bolt-on to an inherently insecure product. The team
-                    has used decades of experience in similar products to 
+                    has used decades of experience in similar products to
                     achieve a level of security that we are proud of.
                 </p>
-            </div>  
+            </div>
         </div>
-        <div class="row mt-4 mb-4">
-            <div class="col-md-4">
-                <div class="text-center">
-                <img src="/img/shh.png" style="width: 200px;" />
-                </div>  
-            </div>  
-            <div class="col-md-8">
-                <h3 class="fs-4">Privacy</h3>
-                <p class="text-start">
+
+        <div class="row align-items-center feature-row">
+            <div class="col-md-3 text-center mb-3 mb-md-0">
+                <img src="/img/shh.png" alt="Privacy" class="img-fluid" style="max-height: 180px;" />
+            </div>
+            <div class="col-md-9">
+                <h3>Privacy</h3>
+                <p>
                     Despite its ethos of forcing servers to immutably and
                     publicly commit to cryptographic data, FOKS hides personal
                     information behind one-way commitments as much as possible.
-                    Details like user names, team names,  device names, team
+                    Details like user names, team names, device names, team
                     memberships and leaf locations remain obscured unless users
                     are granted explicit permission to access these data.
                     Thus, users on the same server can feel
@@ -47,15 +46,13 @@
             </div>
         </div>
 
-        <div class="row mt-4 mb-4">
-            <div class="col-md-4 mt-2 mb-2">
-                <div class="text-center">
-                <img src="/img/mit.webp" style="width: 200px;" />
-                </div>  
-            </div>  
-            <div class="col-md-8">
-                <h3 class="fs-4">Open Source</h3>
-                <p class="text-start">
+        <div class="row align-items-center feature-row">
+            <div class="col-md-3 text-center mb-3 mb-md-0">
+                <img src="/img/mit.webp" alt="Open source" class="img-fluid" style="max-height: 180px;" />
+            </div>
+            <div class="col-md-9">
+                <h3>Open Source</h3>
+                <p>
                     Claims of end-to-end encryption are dubious at best if the
                     source code at the ends remains closed off from inspection,
                     and if users cannot build the software themselves.  FOKS is
@@ -68,45 +65,41 @@
             </div>
         </div>
 
-        <div class="row mt-4 mb-4">
-            <div class="col-md-4">
-                <div class="text-center">
-                <img src="/img/federation.png" style="width: 200px;" />
-                </div>  
-            </div>  
-            <div class="col-md-8">
-                <h3 class="fs-4">Federation</h3>
-                <p class="text-start">
+        <div class="row align-items-center feature-row">
+            <div class="col-md-3 text-center mb-3 mb-md-0">
+                <img src="/img/federation.png" alt="Federation" class="img-fluid" style="max-height: 180px;" />
+            </div>
+            <div class="col-md-9">
+                <h3>Federation</h3>
+                <p>
                     Users are right to fear "vendor lock-in" if storing
                     their important data in the cloud. FOKS is fundamentally
                     designed to give users peace of mind here, as it is an
                     inherently federated protocol. Like email or the web,
-                    anyone can permissionlessly run a FOKS server. There 
+                    anyone can permissionlessly run a FOKS server. There
                     are many reasons users might choose to do so, such
                     as data-residency, avoiding production dependencies on
-                    third-party systems, added privacy, or better 
+                    third-party systems, added privacy, or better
                     control over data.
                 </p>
-                <p class="text-start">
+                <p>
                     But also like email and the web, independent federated
-                    systems can still cleanly interact. In FOKS, teams 
-                    can span federated severs, so users can share data 
-                    as if they were on the same server. 
+                    systems can still cleanly interact. In FOKS, teams
+                    can span federated servers, so users can share data
+                    as if they were on the same server.
                 </p>
            </div>
-        </div> 
+        </div>
 
-        <div class="row mt-4 mb-4">
-            <div class="col-md-4">
-                <div class="text-center">
-                <img src="/img/general.png" style="width: 200px;" />
-                </div>
+        <div class="row align-items-center feature-row">
+            <div class="col-md-3 text-center mb-3 mb-md-0">
+                <img src="/img/general.png" alt="Generality" class="img-fluid" style="max-height: 180px;" />
             </div>
-            <div class="col-md-8">
-                <h3 class="fs-4">Generality</h3>
-                <p class="text-start">
+            <div class="col-md-9">
+                <h3>Generality</h3>
+                <p>
                     FOKS is a general protocol, like email or HTML/HTTP.
-                    We have built two starter applications to show 
+                    We have built two starter applications to show
                     the power of the basic primitive. But hope to build
                     more applications soon, and we want others to build
                     their end-to-end encrypted applications too. The basic
@@ -116,4 +109,5 @@
             </div>
         </div>
 
+        </div>
     </div>
