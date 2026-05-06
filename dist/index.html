@@ -50,6 +50,19 @@
         color: #a0aab4;
         letter-spacing: 0.2px;
       }
+      .hero-news-label {
+        display: inline-block;
+        background: var(--foks-accent);
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        padding: 0.15rem 0.55rem;
+        border-radius: 999px;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+      }
       .hero-credibility a {
         color: #fff;
         text-decoration: none;
@@ -212,7 +225,8 @@
                         <a href="https://github.com/foks-proj/foks-whitepaper/raw/refs/heads/main/foks-whitepaper.pdf" class="btn btn-outline-light btn-lg">White Paper</a>
                     </div>
                     <p class="hero-credibility mt-4 mb-0">
-                        Featured as a <a href="https://mit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57c397c6-8ab6-4ef9-982e-b3df013fe0ed">guest lecture</a>
+                        <span class="hero-news-label">News:</span>
+                        FOKS featured as a <a href="https://mit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57c397c6-8ab6-4ef9-982e-b3df013fe0ed">guest lecture</a>
                         in <a href="https://css.csail.mit.edu/6.5660/2026/">MIT 6.5660</a>
                     </p>
                 </div>
@@ -361,9 +375,8 @@ $ <span class="text-info">foks</span> key list
             <div class="col-md-7">
                 <h3>A Secure Substrate for AI Agents</h3>
                 <p>
-                    Agents need credentials, persistent memory, and access to code &mdash;
-                    the same things humans need, but without the human in the loop to
-                    catch a leak. FOKS gives each agent its own first-class identity,
+                    Like humans, agents need credentials, persistent memory, and access to code.
+                    FOKS gives each agent its own first-class identity,
                     so it can read and write encrypted memory in the KV store, push
                     work to end-to-end encrypted Git repos, and join teams under scoped roles.
                 </p>
@@ -841,6 +854,11 @@ $ docker-compose up -d</pre>
                 </div>
 
             </div>
+
+            <p class="text-center mt-4 mb-0">
+                Don't want to self-host? Sign up for paid hosting at
+                <a href="https://w.foks.app">w.foks.app</a>.
+            </p>
             </div>
           </div>
         </div>
