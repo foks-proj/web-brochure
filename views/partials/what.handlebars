@@ -115,5 +115,40 @@ $ {{#cb}}foks{{/cb}} key list
             </div>
         </div>
 
+        <div class="row align-items-center feature-row">
+            <div class="col-md-5 mb-3 mb-md-0">
+                <div class="code-card">
+                    <pre>
+# agent stores encrypted memory &amp; artifacts
+$ {{#cb}}foks{{/cb}} kv put /agents/scratch/run-2387 "$({{#cb}}cat{{/cb}} memo.json)"
+$ {{#cb}}foks{{/cb}} kv get /agents/scratch/run-2387 -
+{"next":"deploy-staging", ...}
+
+# scoped team membership alongside humans
+$ {{#cb}}foks{{/cb}} team add devops ci-runner --role member
+
+# one command decommissions the agent
+$ {{#cb}}foks{{/cb}} key list
+* ci-runner            agent         revoked
+  laptop 2026-04-01    computer      active</pre>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h3>A Secure Substrate for AI Agents</h3>
+                <p>
+                    Like humans, agents need credentials, persistent memory, and access to code.
+                    FOKS gives each agent its own first-class identity,
+                    so it can read and write encrypted memory in the KV store, push
+                    work to end-to-end encrypted Git repos, and join teams under scoped roles.
+                </p>
+                <p>
+                    When an agent is retired or compromised, a single key revocation
+                    cascades a full key rotation across every team it touched. The
+                    server never sees plaintext, so there is no shared broker to breach
+                    and no central log of agent activity to exfiltrate.
+                </p>
+            </div>
+        </div>
+
         </div>
     </div>

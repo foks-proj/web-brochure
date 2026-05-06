@@ -45,6 +45,19 @@
         max-height: 180px;
         opacity: 0.92;
       }
+      .hero-credibility {
+        font-size: 0.9rem;
+        color: #a0aab4;
+        letter-spacing: 0.2px;
+      }
+      .hero-credibility a {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255,255,255,0.35);
+      }
+      .hero-credibility a:hover {
+        border-bottom-color: #fff;
+      }
 
       /* Sections */
       .section { padding: 3.5rem 0; }
@@ -196,7 +209,12 @@
                     <div class="mt-4 d-flex flex-wrap justify-content-center gap-3">
                         <a href="#download" class="btn btn-foks btn-lg">Install FOKS</a>
                         <a href="https://docs.foks.pub" class="btn btn-outline-light btn-lg">Read the Docs</a>
+                        <a href="https://github.com/foks-proj/foks-whitepaper/raw/refs/heads/main/foks-whitepaper.pdf" class="btn btn-outline-light btn-lg">White Paper</a>
                     </div>
+                    <p class="hero-credibility mt-4 mb-0">
+                        Featured as a <a href="https://mit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57c397c6-8ab6-4ef9-982e-b3df013fe0ed">guest lecture</a>
+                        in <a href="https://css.csail.mit.edu/6.5660/2026/">MIT 6.5660</a>
+                    </p>
                 </div>
                 <div class="col-md-4 mt-3 mt-md-0">
                     <img src="/img/foks.png" alt="FOKS logo" />
@@ -318,6 +336,42 @@ $ <span class="text-info">foks</span> key list
                     You can also revoke access to a device if it is lost or stolen.
                     Revoking triggers a cascading key-rotation across all teams you are members of,
                     whether local or federated. This keeps data secure going forward.
+                </p>
+            </div>
+        </div>
+
+        <div class="row align-items-center feature-row">
+            <div class="col-md-5 mb-3 mb-md-0">
+                <div class="code-card">
+                    <pre>
+# agent stores encrypted memory &amp; artifacts
+$ <span class="text-info">foks</span> kv put /agents/scratch/run-2387 "$(<span class="text-info">cat</span> memo.json)"
+$ <span class="text-info">foks</span> kv get /agents/scratch/run-2387 -
+{"next":"deploy-staging", ...}
+
+# scoped team membership alongside humans
+$ <span class="text-info">foks</span> team add devops ci-runner --role member
+
+# one command decommissions the agent
+$ <span class="text-info">foks</span> key list
+* ci-runner            agent         revoked
+  laptop 2026-04-01    computer      active</pre>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h3>A Secure Substrate for AI Agents</h3>
+                <p>
+                    Agents need credentials, persistent memory, and access to code &mdash;
+                    the same things humans need, but without the human in the loop to
+                    catch a leak. FOKS gives each agent its own first-class identity,
+                    so it can read and write encrypted memory in the KV store, push
+                    work to end-to-end encrypted Git repos, and join teams under scoped roles.
+                </p>
+                <p>
+                    When an agent is retired or compromised, a single key revocation
+                    cascades a full key rotation across every team it touched. The
+                    server never sees plaintext, so there is no shared broker to breach
+                    and no central log of agent activity to exfiltrate.
                 </p>
             </div>
         </div>
@@ -801,7 +855,7 @@ $ docker-compose up -d</pre>
                     <h2>Learn More</h2>
                     <div class="d-flex justify-content-center flex-wrap gap-2">
                         <a href="https://docs.foks.pub" class="btn btn-foks">Documentation</a>
-                        <a href="https://blog.foks.pub/posts" class="btn btn-outline-secondary">Blog</a>
+                        <a href="https://blog.foks.pub" class="btn btn-outline-secondary">Blog</a>
                         <a href="https://github.com/foks-proj/go-foks" class="btn btn-outline-secondary"><svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor" style="vertical-align: text-bottom; margin-right: 4px;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>Source Code</a>
                         <a href="https://github.com/foks-proj/foks-whitepaper/raw/refs/heads/main/foks-whitepaper.pdf" class="btn btn-outline-secondary">&#x1F4C4; White Paper</a>
                         <a href="https://github.com/foks-proj/foks-whitepaper" class="btn btn-outline-secondary"><svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor" style="vertical-align: text-bottom; margin-right: 4px;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>White Paper Source</a>
