@@ -1,12 +1,5 @@
 node_modules
 
-# Hugo default output directory
-/public/
-/resources/
-
-# Temporary files
-.hugo_build.lock
-
 # OS generated files
 .DS_Store
 .DS_Store?
