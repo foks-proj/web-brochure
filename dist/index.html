@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FOKS - Federated Open Key Service</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -292,15 +293,15 @@ To foks://acme.co/alice/secrets
                 <h3>End-to-End Post-Quantum Encrypted Git Hosting</h3>
                 <p>
                     FOKS provides a secure, end-to-end encrypted Git hosting service.
-                    Your data is encrypted on your machine before it is sent to the server,
+                    Your data is encrypted on your machine before it hits the server,
                     and the server never sees data or filenames in unencrypted form.
-                    This means that even if the server is compromised, your data is safe.
+                    Thus, your data is safe, even in the event of server compromise.
                     FOKS is federated, so the git server can be one that
                     you host, or one that is hosted for you.
                 </p>
                 <p>
-                    Additionally, FOKS uses modern PQ-secure public-key cryptography, so all end-to-end
-                    encrypted data is safe from quantum attacks.
+                    Additionally, FOKS uses modern PQ-secure public-key cryptography, securing all end-to-end
+                    encrypted data against future quantum attacks.
                 </p>
             </div>
         </div>
@@ -354,7 +355,7 @@ member   t:devops@gizmos.net</pre>
                     You can create teams, add members, and assign roles.
                     You can also delegate team management to other team members.
                     Teams can be members of other teams, allowing for complex
-                    team topologies that can mirror real-world organizations.
+                    team topologies that mirror real-world organizations.
                     Moreover, teams can cross federated boundaries, allowing
                     users on different FOKS servers to share data with end-to-end encryption.
                 </p>
@@ -412,9 +413,7 @@ $ <span class="text-info">foks</span> key list
                 </p>
                 <p>
                     When an agent is retired or compromised, a single key revocation
-                    cascades a full key rotation across every team it touched. The
-                    server never sees plaintext, so there is no shared broker to breach
-                    and no central log of agent activity to exfiltrate.
+                    cascades a full key rotation across every team it touched.
                 </p>
             </div>
         </div>

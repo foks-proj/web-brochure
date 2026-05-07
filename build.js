@@ -61,6 +61,13 @@ fs.copyFileSync(
 );
 console.log('Bootstrap JS copied to dist/js/bootstrap.bundle.min.js');
 
+// copy favicon.ico from public to dist
+fs.copyFileSync(
+  path.join(__dirname, 'public/favicon.ico'),
+  path.join(outputDir, 'favicon.ico')
+);
+console.log('Favicon copied to dist/favicon.ico');
+
 // copy all images from public/img to dist/img by first listing all the images
 // and then copying each one
 const imgFiles = fs.readdirSync(path.join(__dirname, 'public/img'));
