@@ -64,30 +64,50 @@
         max-height: 180px;
         opacity: 0.92;
       }
-      .hero-credibility {
-        font-size: 0.9rem;
-        color: #a0aab4;
-        letter-spacing: 0.2px;
+      .hero-news {
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0.75rem 1rem 0.75rem 0.85rem;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 10px;
+        text-align: left;
       }
       .hero-news-label {
-        display: inline-block;
+        flex-shrink: 0;
         background: var(--foks-accent);
         color: #fff;
         font-weight: 600;
-        font-size: 0.72rem;
-        letter-spacing: 0.6px;
+        font-size: 0.7rem;
+        letter-spacing: 0.7px;
         text-transform: uppercase;
-        padding: 0.2rem 0.6rem;
+        padding: 0.2rem 0.55rem;
         border-radius: 999px;
-        margin-right: 0.5rem;
-        vertical-align: middle;
+        margin-top: 0.15rem;
       }
-      .hero-credibility a {
+      .hero-news-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        color: #c8cdd6;
+      }
+      .hero-news-list li + li {
+        margin-top: 0.3rem;
+        padding-top: 0.3rem;
+        border-top: 1px solid rgba(255,255,255,0.06);
+      }
+      .hero-news-list a {
         color: #fff;
         text-decoration: none;
         border-bottom: 1px solid rgba(255,255,255,0.35);
       }
-      .hero-credibility a:hover {
+      .hero-news-list a:hover {
         border-bottom-color: #fff;
       }
 
@@ -249,17 +269,26 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-7">
                     <h1>FOKS</h1>
-                    <h2 class="mx-auto">the Federated Open Key Service &mdash; end-to-end encrypted Git, secret storage, and team management you can self-host</h2>
+                    <h2 class="mx-auto">the Federated Open Key Service: end-to-end encrypted Git, secret storage, and team management you can self-host</h2>
                     <div class="mt-4 d-flex flex-wrap justify-content-center gap-3">
                         <a href="#download" class="btn btn-foks btn-lg">Install FOKS</a>
                         <a href="https://docs.foks.pub" class="btn btn-outline-light btn-lg">Read the Docs</a>
                         <a href="https://github.com/foks-proj/foks-whitepaper/raw/refs/heads/main/foks-whitepaper.pdf" class="btn btn-outline-light btn-lg">White Paper</a>
                     </div>
-                    <p class="hero-credibility mt-4 mb-0">
-                        <span class="hero-news-label">News:</span>
-                        FOKS featured as a <a href="https://mit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57c397c6-8ab6-4ef9-982e-b3df013fe0ed">guest lecture</a>
-                        in <a href="https://css.csail.mit.edu/6.5660/2026/">MIT 6.5660</a>
-                    </p>
+                    <div class="hero-news mt-4">
+                        <span class="hero-news-label">News</span>
+                        <ul class="hero-news-list">
+                            <li>
+                                <a href="https://github.com/jdx/fnox/pull/486">fnox</a>
+                                adds FOKS as a secrets backend
+                            </li>
+                            <li>
+                                FOKS featured as a
+                                <a href="https://mit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57c397c6-8ab6-4ef9-982e-b3df013fe0ed">guest lecture</a>
+                                in <a href="https://css.csail.mit.edu/6.5660/2026/">MIT 6.5660</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-4 mt-3 mt-md-0">
                     <img src="/img/foks.png" alt="FOKS logo" />
@@ -295,13 +324,13 @@ To foks://acme.co/alice/secrets
                     FOKS provides a secure, end-to-end encrypted Git hosting service.
                     Your data is encrypted on your machine before it hits the server,
                     and the server never sees data or filenames in unencrypted form.
-                    Thus, your data is safe, even in the event of server compromise.
-                    FOKS is federated, so the git server can be one that
-                    you host, or one that is hosted for you.
+                    FOKS uses PQ-secure public-key cryptography, securing all end-to-end
+                    encrypted data against future quantum attacks.
+                    Your secrets are safe, even in the event of server compromise.
                 </p>
                 <p>
-                    Additionally, FOKS uses modern PQ-secure public-key cryptography, securing all end-to-end
-                    encrypted data against future quantum attacks.
+                    What's more, FOKS is federated, so the git server can be one that
+                    you host, or one that is hosted for you.
                 </p>
             </div>
         </div>
@@ -877,7 +906,7 @@ $ /usr/bin/env bash &lt;(curl -fsSL https://pkgs.foks.pub/server-install.sh)</pr
                             <pre>
 $ go install github.com/foks-proj/go-foks/server/foks-tool@latest
 $ foks-tool standup --interactive
-$ docker-compose up -d</pre>
+$ docker compose up -d</pre>
                         </div>
                     </div>
                 </div>
